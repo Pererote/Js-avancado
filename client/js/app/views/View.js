@@ -1,15 +1,13 @@
-class View{
+class View {
+	constructor(element) {
+		this._element = element;
+	}
 
-    constructor (element){
-        this._element = element
-    }
+	_template() {
+		throw Error('"_template" method should be implemented');
+	}
 
-    _template(){
-        throw Error('"_template" method should be implemented')
-    }
-
-    update(model){
-
-        this._element.innerHTML = this._template(model);
-    }
+	update(model) {
+		this._element.innerHTML = this._template(model);
+	}
 }

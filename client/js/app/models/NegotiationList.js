@@ -1,27 +1,21 @@
-class NegotiationList{
+class NegotiationList {
+	constructor() {
+		this._negotiations = [];
+	}
 
-    constructor(){
-    this._negotiations = []
+	addNegotiation(negotiation) {
+		this._negotiations.push(negotiation);
+	}
 
-    }
+	get negotiations() {
+		return [].concat(this._negotiations);
+	}
 
-    addNegotiation(negotiation){
-        this._negotiations.push(negotiation);
-    
-    }
+	flush() {
+		this._negotiations = [];
+	}
 
-    get negotiations(){
-        return [].concat(this._negotiations);
-    
-    }
-
-    flush(){
-        this._negotiations = [] 
-        
-    }
-    
-    get volumeTotal() {
-        return this._negotiations.reduce((total, n) => total + n.volume, 0.0);
-    
-    }
+	get volumeTotal() {
+		return this._negotiations.reduce((total, n) => total + n.volume, 0.0);
+	}
 }
